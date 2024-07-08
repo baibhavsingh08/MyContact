@@ -57,6 +57,14 @@ extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("hello")
         print(contacts[indexPath.row])
+        
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyBoard.instantiateViewController(identifier: "testVC")
+        
+        vc.navigationItem.title = namesDict[sectionTitle[indexPath.section]]?[indexPath.row]
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -83,6 +91,4 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitle[section]
     }
-    
-    
 }
