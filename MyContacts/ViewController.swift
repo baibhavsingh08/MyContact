@@ -35,18 +35,34 @@ class ViewController: UIViewController {
     
     var sectionTitle = [String]()
     
+    var searchContact = [String]()
+    
     var namesDict = [String: [String]]()
     
+    var searching = false
+    
+    var finalContacts = [String]()
+
     
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
+
         
-        sectionTitle = Array(Set(contacts.compactMap({value in
+        
+        if(searching == true){
+            finalContacts = searchContact
+        }else{
+            finalContacts = contacts
+        }
+        
+        sectionTitle = Array(Set(finalContacts.compactMap({value in
             String(value.prefix(1))
         })))
         
@@ -56,9 +72,12 @@ class ViewController: UIViewController {
             namesDict[secTitle] = [String]()
         }
         
-        for name in contacts{
+        for name in finalContacts{
             namesDict[String(name.prefix(1))]?.append(name)
         }
+        
+//        print(finalContacts)
+        print(namesDict)
     }
     
 
@@ -67,7 +86,7 @@ class ViewController: UIViewController {
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("hello")
-        print(contacts[indexPath.row])
+        print(finalContacts[indexPath.row])
         
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -87,6 +106,14 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
+        if(searching == true){
+            finalContacts = searchContact
+        }else{
+            finalContacts = contacts
+        }
+        
+        
+        
         cell.textLabel?.text =  namesDict[sectionTitle[indexPath.section]]?[indexPath.row]
         return cell
     }
@@ -101,5 +128,33 @@ extension ViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitle[section]
+    }
+}
+
+extension ViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+         searchContact = contacts.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        
+        searching = true
+        
+        finalContacts = searchContact
+        
+        sectionTitle = Array(Set(finalContacts.compactMap({value in
+            String(value.prefix(1))
+        })))
+        
+        sectionTitle.sort()
+        
+        for secTitle in sectionTitle{
+            namesDict[secTitle] = [String]()
+        }
+        
+        for name in finalContacts{
+            namesDict[String(name.prefix(1))]?.append(name)
+        }
+    
+        tableView.reloadData()
+        
+        
     }
 }

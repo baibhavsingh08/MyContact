@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  MyContacts
-//
-//  Created by Raramuri on 08/07/24.
-//
-
 import UIKit
 
 @main
