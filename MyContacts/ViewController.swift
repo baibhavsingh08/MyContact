@@ -39,7 +39,6 @@ class ViewController: UIViewController {
     
     var namesDict = [String: [String]]()
     
-    var searching = false
     
     var finalContacts = [String]()
 
@@ -53,14 +52,9 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         searchBar.delegate = self
+        
+        finalContacts = contacts
 
-        
-        
-        if(searching == true){
-            finalContacts = searchContact
-        }else{
-            finalContacts = contacts
-        }
         
         sectionTitle = Array(Set(finalContacts.compactMap({value in
             String(value.prefix(1))
@@ -75,9 +69,7 @@ class ViewController: UIViewController {
         for name in finalContacts{
             namesDict[String(name.prefix(1))]?.append(name)
         }
-        
-//        print(finalContacts)
-        print(namesDict)
+
     }
     
 
@@ -106,13 +98,6 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        if(searching == true){
-            finalContacts = searchContact
-        }else{
-            finalContacts = contacts
-        }
-        
-        
         
         cell.textLabel?.text =  namesDict[sectionTitle[indexPath.section]]?[indexPath.row]
         return cell
@@ -135,7 +120,6 @@ extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
          searchContact = contacts.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
         
-        searching = true
         
         finalContacts = searchContact
         
