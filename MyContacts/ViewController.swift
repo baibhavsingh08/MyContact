@@ -10,17 +10,28 @@ import UIKit
 class ViewController: UIViewController {
     
     let contacts =  [
-        "John Doe",
-        "Jane Smith",
-        "Michael Johnson",
-        "Emily Brown",
-        "Daniel Wilson",
-        "Sarah Martinez",
-        "Kevin Lee",
-        "Amanda Davis",
-        "Jason Taylor",
-        "Rachel Moore"
+        "John Doe", "Jane Smith", "Michael Johnson", "Emily Brown", "Daniel Wilson",
+        "Sarah Martinez", "Kevin Lee", "Amanda Davis", "Jason Taylor", "Rachel Moore",
+        "David Harris", "Lisa Clark", "James Lewis", "Jessica Walker", "Christopher Hall",
+        "Mary Allen", "Robert Young", "Linda King", "Thomas Wright", "Patricia Scott",
+        "Mark Green", "Barbara Adams", "Steven Baker", "Susan Nelson", "Joseph Hill",
+        "Karen Ramirez", "Charles Campbell", "Nancy Mitchell", "Paul Roberts", "Betty Carter",
+        "Edward Turner", "Margaret Phillips", "Brian Parker", "Sandra Evans", "George Edwards",
+        "Ashley Collins", "Ronald Stewart", "Kimberly Sanchez", "Anthony Morris", "Donna Rogers",
+        "Kenneth Reed", "Michelle Cook", "Jason Morgan", "Emily Bell", "Eric Murphy",
+        "Sophia Bailey", "Ryan Rivera", "Christine Cooper", "Jeffrey Richardson", "Amy Cox",
+        "Frank Howard", "Kathleen Ward", "Scott Torres", "Megan Peterson", "Raymond Gray",
+        "Laura Ramirez", "Gregory James", "Janet Watson", "Jacob Brooks", "Diane Price",
+        "Patrick Bennett", "Angela Wood", "Nicholas Barnes", "Cynthia Ross", "Joshua Henderson",
+        "Katherine Coleman", "Gary Jenkins", "Julie Perry", "Andrew Russell", "Victoria Butler",
+        "Justin Powell", "Teresa Foster", "Sean Simmons", "Carolyn Gonzales", "Stephen Bryant",
+        "Martha Alexander", "Benjamin Russell", "Frances Griffin", "Matthew Shaw", "Ann Knight",
+        "Larry Reynolds", "Pamela Fisher", "Timothy Webb", "Debra Kennedy", "Walter Welch",
+        "Janice Daniels", "Peter Stevens", "Ruth Wheeler", "Kyle Harper", "Jacqueline Berry",
+        "Dennis Warren", "Alice Elliott", "Raymond Fields", "Julia Bishop", "Roger Perry",
+        "Gloria Burns", "Jeremy Olson", "Victoria Hart", "Samuel Holland", "Marie Reynolds"
     ]
+
     
     var sectionTitle = [String]()
     
