@@ -13,6 +13,8 @@
 		B9AC06A82C3BE4B800CBB945 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B9AC06A72C3BE4B800CBB945 /* Base */; };
 		B9AC06AA2C3BE4B900CBB945 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9AC06A92C3BE4B900CBB945 /* Assets.xcassets */; };
 		B9AC06AD2C3BE4B900CBB945 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = B9AC06AC2C3BE4B900CBB945 /* Base */; };
+		B9AC06BC2C3C5BFA00CBB945 /* myContact.json in Resources */ = {isa = PBXBuildFile; fileRef = B9AC06BA2C3C5B7400CBB945 /* myContact.json */; };
+		B9AC06BE2C3D3C8B00CBB945 /* Name.json in Resources */ = {isa = PBXBuildFile; fileRef = B9AC06BD2C3D3C8B00CBB945 /* Name.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		B9AC06A92C3BE4B900CBB945 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9AC06AC2C3BE4B900CBB945 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9AC06AE2C3BE4B900CBB945 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9AC06BA2C3C5B7400CBB945 /* myContact.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = myContact.json; sourceTree = "<group>"; };
+		B9AC06BD2C3D3C8B00CBB945 /* Name.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Name.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				B9AC06A22C3BE4B800CBB945 /* SceneDelegate.swift */,
 				B9AC06A42C3BE4B800CBB945 /* ViewController.swift */,
 				B9AC06A62C3BE4B800CBB945 /* Main.storyboard */,
+				B9AC06BD2C3D3C8B00CBB945 /* Name.json */,
+				B9AC06BA2C3C5B7400CBB945 /* myContact.json */,
 				B9AC06A92C3BE4B900CBB945 /* Assets.xcassets */,
 				B9AC06AB2C3BE4B900CBB945 /* LaunchScreen.storyboard */,
 				B9AC06AE2C3BE4B900CBB945 /* Info.plist */,
@@ -125,9 +131,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9AC06BC2C3C5BFA00CBB945 /* myContact.json in Resources */,
 				B9AC06AA2C3BE4B900CBB945 /* Assets.xcassets in Resources */,
 				B9AC06AD2C3BE4B900CBB945 /* Base in Resources */,
 				B9AC06A82C3BE4B800CBB945 /* Base in Resources */,
+				B9AC06BE2C3D3C8B00CBB945 /* Name.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
