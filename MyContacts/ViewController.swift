@@ -15,6 +15,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         searchBar.delegate = self
         
+
+        
         readJSON()
         
         finalContacts = contacts
