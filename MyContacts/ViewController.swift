@@ -3,7 +3,6 @@ import UIKit
 class ViewController: UIViewController {
     var contacts = [String]()
     var sectionTitle = [String]()
-    var searchContact = [String]()
     var namesDict = [String: [String]]()
     var finalContacts = [String]()
     
@@ -19,7 +18,6 @@ class ViewController: UIViewController {
         readJSON()
         
         finalContacts = contacts
-
         sectionTitle = Array(Set(finalContacts.compactMap({value in
             String(value.prefix(1))
         })))
@@ -32,6 +30,23 @@ class ViewController: UIViewController {
         
         for name in finalContacts {
             namesDict[String(name.prefix(1))]?.append(name)
+        }
+    }
+    
+    func readJSON() {
+        if let path = Bundle.main.path(forResource: "Name", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(filePath: path), options: .mappedIfSafe)
+                let name = try JSONDecoder().decode([String].self, from: data)
+                
+                for item in name {
+                    contacts.append(item)
+                }
+            }catch {
+                print("Something wrong")
+            }
+        }else {
+            print("wrong name")
         }
     }
 }
@@ -71,8 +86,11 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchContact = contacts.filter({$0.lowercased().prefix(searchText.count) == searchText.lowercased()})
-        finalContacts = searchContact
+        if searchText.isEmpty {
+            finalContacts = contacts
+        }else {
+            finalContacts = contacts.filter({$0.lowercased().contains(searchText.lowercased()) })
+        }
         
         sectionTitle = Array(Set(finalContacts.compactMap({value in
             String(value.prefix(1))
@@ -91,20 +109,6 @@ extension ViewController: UISearchBarDelegate{
         tableView.reloadData()
     }
     
-    func readJSON() {
-        if let path = Bundle.main.path(forResource: "Name", ofType: "json") {
-            do {
-                let data = try Data(contentsOf: URL(filePath: path), options: .mappedIfSafe)
-                let name = try JSONDecoder().decode([String].self, from: data)
-                
-                for item in name {
-                    contacts.append(item)
-                }
-            }catch {
-                print("Something wrong")
-            }
-        }else {
-            print("wrong name")
-        }
-    }
 }
+
+
